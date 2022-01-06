@@ -147,8 +147,42 @@ task main()
 - <=: LESS THEN OR EQUAL TO
 
 ## Code Examples
-- Variables & Timers
+- Variables & Timers:
+```
+// Create a program to add 1 to a counter variable once a second for 20 seconds
+task main()
+{
+	int counter; // declare counter variable
+	ClearTimer(T1); // resets timer to 0
+	while (time1(T1) < 20000) // run for 20 seconds
+	{
+		counter = counter + 1; // Add one to counter
+		wait(0.5); // wait 1 second so we only loop once a second
+	}
+}
+```
 - [Functions](#Functions)
 - While If Else
+```
+// Create a program that if the sonar sensor value is high (far away)
+// while the bump switch is held the LED will turn on
+task main()
+{
+	while (true) // infinite loop
+	{
+		while (SensorValue(bumpSwitch) == 1) // Loops while bump switch is pressed
+		{
+			if (SensorValue(sonar) > 50)
+			{
+				turnLEDOn(green);
+			}
+			else
+			{
+				turnLEDOff(green);
+			}
+		}
+	}
+}
+```
 
 > Written with [StackEdit](https://stackedit.io/).
