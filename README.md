@@ -1,15 +1,26 @@
 
+
 # RobotC Study Guide
+### Quick Links: 
+- [Loops and Conditionals](#Loops-and-Conditionals)
+- [Variables](#Variables)
+- [Loop Using Variables](#Loop-Using-Variables)
+- [Functions](#Functions)
+- [Keywords and Methods](#Keywords-and-Methods)
+- [Curly Brackets](#Curly-Brackets)
+- [Timers](#Timers)
+- [Boolean Operators](#Boolean-Operators)
+- [Code Examples](#Code-Examples)
 
 ## Loops and Conditionals
 - While:
-    `while (condition) {}`
-    -    Repeats code inside brackets until condition is false
-    -    Condition:
-        -    ex: 1 == 1, SensorValue(button) == 1
--    If:    
+	`while (condition) {}`
+	-	Repeats code inside brackets until condition is false
+	-	Condition:
+		-	ex: 1 == 1, SensorValue(button) == 1
+-	If:	
 `if (condition)`
-    - Runs code inside brackets if condition is true
+	- Runs code inside brackets if condition is true
 -  If/Else:
 ```
 if (condition) // if red
@@ -29,16 +40,16 @@ if (condition) // if red
 ## Variables
 
 - Variables:
-    - int:
-        -  whole numbers +/-
-    - bool:
-        -  true/false
-    - float:
-        -  decimal numbers
+	- int:
+		-  whole numbers +/-
+	- bool:
+		-  true/false
+	- float:
+		-  decimal numbers
 -  type name = value;
-    - int count = 0;
-    - count = count + 10;
-    - max = count;
+	- int count = 0;
+	- count = count + 10;
+	- max = count;
 
 ### Loop Using Variables
 - I want to loop a flashing LED 5 times
@@ -56,51 +67,51 @@ while (count < 5) {
 void LEDOn();
 task main()
 {
-    // START OF CODE STUFF
-    turnLEDOff(green);
-    LEDOn(); // Call function
-    turnLEDOff(green);
-    LEDOn();
+	// START OF CODE STUFF
+	turnLEDOff(green);
+	LEDOn(); // Call function
+	turnLEDOff(green);
+	LEDOn();
 }
 
 void LEDOn() // Define function
 {
-    wait(2);
-    turnLEDOn(green);
-    startMotor(left);
+	wait(2);
+	turnLEDOn(green);
+	startMotor(left);
 }
 ```
 - Pattern to follow:
-    1. Declaration: tell computer the function exists (must exist before task main)
-    2. Call: tell the computer to run that code
-    3. Define: what code to run
+	1. Declaration: tell computer the function exists (must exist before task main)
+	2. Call: tell the computer to run that code
+	3. Define: what code to run
 
 ## Keywords and Methods
 - To turn on a motor:
-    - `startMotor(motorName, speed); // speed ranges from +127 to -127`
+	- `startMotor(motorName, speed); // speed ranges from +127 to -127`
 - To stop a motor:
-    - `stopMotor(motorName);`
+	- `stopMotor(motorName);`
 - Wait for a set amount of time:
-    - `wait(seconds);`
+	- `wait(seconds);`
 - Wait until bump switch is pressed
-    - `untilBump(name);`
+	- `untilBump(name);`
 - Wait until potentiometer value is > 100
-    - `untilPotentiometerGreaterThan(100, name);` 
+	- `untilPotentiometerGreaterThan(100, name);` 
 - Set servo to go to a specific position:
-    - `setServo(servoName, position); // position ranges between +127 to -127`
+	- `setServo(servoName, position); // position ranges between +127 to -127`
 - To get the value of a sensor:
-    - `SensorValue(sensorName);`
-    - examples:
-        - `int distance = SensorValue(sonar);`
-        - `if (SensorValue(sonar) > 10) {}` 
+	- `SensorValue(sensorName);`
+	- examples:
+		- `int distance = SensorValue(sonar);`
+		- `if (SensorValue(sonar) > 10) {}` 
 
 ## Curly Brackets
 - Curly brackets are used to group a block of code
 ```
 while (true)
 {
-    turnLEDOn(green);
-    startMotor(leftMotor, 63);
+	turnLEDOn(green);
+	startMotor(leftMotor, 63);
 }
 setServo(servo, 120);
 ```
@@ -108,28 +119,28 @@ setServo(servo, 120);
 ```
 if (SensorValue(bumpSwitch) == 1)
 {
-    turnLEDOn(green);
-    startMotor(leftMotor, 63);
+	turnLEDOn(green);
+	startMotor(leftMotor, 63);
 } else 
 {
-    setServo(servo, 120);
+	setServo(servo, 120);
 }
 ```
 
 ## Timers
 - If you want to toggle an LED for 20 seconds
-    - There are 4 internal timers titled T1, T2, T3, T4
-    - Timers count in milliseconds (add 3 zeros)\
+	- There are 4 internal timers titled T1, T2, T3, T4
+	- Timers count in milliseconds (add 3 zeros)\
 ```
 task main()
 {
-    ClearTimer(T1); // resets timer to 0
-    while (time1(T1) < 20000) {
-        turnLEDOn(green);
-        wait(0.5);
-        turnLEDOff(green);
-        wait(0.5);
-    }
+	ClearTimer(T1); // resets timer to 0
+	while (time1(T1) < 20000) {
+		turnLEDOn(green);
+		wait(0.5);
+		turnLEDOff(green);
+		wait(0.5);
+	}
 }
 ```
 
@@ -152,13 +163,13 @@ task main()
 // Create a program to add 1 to a counter variable once a second for 20 seconds
 task main()
 {
-    int counter; // declare counter variable
-    ClearTimer(T1); // resets timer to 0
-    while (time1(T1) < 20000) // run for 20 seconds
-    {
-        counter = counter + 1; // Add one to counter
-        wait(0.5); // wait 1 second so we only loop once a second
-    }
+	int counter; // declare counter variable
+	ClearTimer(T1); // resets timer to 0
+	while (time1(T1) < 20000) // run for 20 seconds
+	{
+		counter = counter + 1; // Add one to counter
+		wait(0.5); // wait 1 second so we only loop once a second
+	}
 }
 ```
 - [Functions](#Functions)
@@ -168,20 +179,20 @@ task main()
 // while the bump switch is held the LED will turn on
 task main()
 {
-    while (true) // infinite loop
-    {
-        while (SensorValue(bumpSwitch) == 1) // Loops while bump switch is pressed
-        {
-            if (SensorValue(sonar) > 50)
-            {
-                turnLEDOn(green);
-            }
-            else
-            {
-                turnLEDOff(green);
-            }
-        }
-    }
+	while (true) // infinite loop
+	{
+		while (SensorValue(bumpSwitch) == 1) // Loops while bump switch is pressed
+		{
+			if (SensorValue(sonar) > 50)
+			{
+				turnLEDOn(green);
+			}
+			else
+			{
+				turnLEDOff(green);
+			}
+		}
+	}
 }
 ```
 
