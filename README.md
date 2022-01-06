@@ -43,12 +43,12 @@ if (condition) // if red
 ### Loop Using Variables
 - I want to loop a flashing LED 5 times
 ```
-	int count = 0;
-	while (count < 5) {
-	
-		// TURN LED OFF AND ON
-		count = count + 1;
-	}
+int count = 0;
+while (count < 5) {
+
+    // TURN LED OFF AND ON
+    count = count + 1;
+}
 ```
 
 ## Functions
