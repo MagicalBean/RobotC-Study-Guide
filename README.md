@@ -1,5 +1,6 @@
 
 
+
 # RobotC Study Guide
 ### Quick Links: 
 - [Loops and Conditionals](#Loops-and-Conditionals)
@@ -130,11 +131,11 @@ if (SensorValue(bumpSwitch) == 1)
 ## Timers
 - If you want to toggle an LED for 20 seconds
 	- There are 4 internal timers titled T1, T2, T3, T4
-	- Timers count in milliseconds (add 3 zeros)\
+	- Timers count in milliseconds (add 3 zeros)
 ```
 task main()
 {
-	ClearTimer(T1); // resets timer to 0
+	clearTimer(T1); // resets timer to 0
 	while (time1(T1) < 20000) {
 		turnLEDOn(green);
 		wait(0.5);
@@ -149,13 +150,13 @@ task main()
 |--|--|--|
 | && | AND | true && false: **false** |
 | == | Equal to | 1 == 1: **true**, 1 == 2: **false** |
-| != | Not equal to | 1 != 1: **false**, 1 != 5: **true**|
-| \|\| | OR | true \|\| false: **false**, true \|\| true: **true** 
+| != | Not equal to | 1 != 5: **true**, 1 != 1: **false**|
+| \|\| | OR | true \|\| false: **true**, false \|\| false: **false** |
+| \>* | Greater Then | 5 > 1: **true**, 2 > 6: **false** |
+| \<* | Less Then | 4 < 10: **true**, 5 < 2: **false**|
 
-- \>: GREATER THEN
-- <: LESS THEN
-- \>=: GREATER THEN OR EQUAL TO
-- <=: LESS THEN OR EQUAL TO
+\* add "=" after symbol to include numbers that are equal
+ - ex: 5 > 5: **false** but 5 >= 5: **true**
 
 ## Code Examples
 - Variables & Timers:
@@ -173,7 +174,7 @@ task main()
 }
 ```
 - [Functions](#Functions)
-- While If Else
+- While If Else:
 ```
 // Create a program that if the sonar sensor value is high (far away)
 // while the bump switch is held the LED will turn on
